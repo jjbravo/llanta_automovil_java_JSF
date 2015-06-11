@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:jsf="http://xmlns.jcp.org/jsf"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <head  jsf:id="head">
+        <title>Registro de llantas</title>
+        <link rel="stylesheet" href="#{request.contextPath}/resource/css/foundation.min.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/resource/css/normalize.css"/>
+        <link rel="stylesheet" href="#{request.contextPath}/resource/css/style.css"/>
+        <script src="#{request.contextPath}/js/vendor/modernizr.js"></script>
+    </head>
+    <body  jsf:id="body"> 
+       
+        
+         <header class="row"  >
+             
+<nav class="fixed top-bar" data-topbar="" role="navigation"> 
+  <ul class="title-area"> 
+    <li class="name"><h1><a href="#">ADSI</a></h1> </li> <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone --> 
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul> 
+
+    <section class="top-bar-section"> <!-- Right Nav Section --> 
+      <ul class="right"> 
+        
+        
+      </ul> <!-- Left Nav Section --> 
+      <ul class="left"> 
+          <li><a jsf:outcome="index" >Registro de Llantas</a></li> 
+           <li><a jsf:outcome="verregistros" >Ver registros de llantas</a></li> 
+      </ul> 
+      
+    </section> 
+  </nav>
+ </header>
+        
+        
+             <section class="row">
+      <form class="formulario" jsf:id="formLlanta">
+           
+           
+            <label>Fabricante </label>
+            <input
+                type="text"
+                jsf="fabricante"
+                required="true"
+                jsf:value="#{llantaController.currentLlanta.fabricante}"/>
+            
+            <label>Fecha fabricacion (formato AAAA/MM/DD) </label>
+            <input
+                type="text"
+                jsf="fecha"
+                required="true"
+                jsf:value="#{llantaController.currentLlanta.fecha_fabricacion}"/>
+            
+            <label>Tipo  </label>
+            <select jsf:id="tipo"
+                        size="1"
+                        required="true"
+                        jsf:value="#{llantaController.currentLlanta.tipo}">
+                    <f:selectItem itemLabel="Seleccione uno.."/>
+                    <f:selectItem itemLabel="P" itemValue="P" />
+                    <f:selectItem itemLabel="LT" itemValue="LT" />
+                    <f:selectItem itemLabel="T" itemValue="T" />
+                    <f:selectItem itemLabel="ST" itemValue="ST" />
+                </select>
+            
+            <label>Ancho (Ancho en milimetros) </label>
+            <input
+                type="number"
+                jsf="ancho"
+                required="true"
+                jsf:value="#{llantaController.currentLlanta.ancho}"/>
+            
+            <label>Relación </label>
+            <input
+                type="number"
+                jsf="relacion"
+                required="true"
+                jsf:value="#{llantaController.currentLlanta.relacion}"/>
+            
+            <label>Construcción </label>
+            
+            <select jsf:id="construccion"
+                        size="1"
+                        required="true"
+                        jsf:value="#{llantaController.currentLlanta.construccion}">
+                    <f:selectItem itemLabel="Seleccione uno.."/>
+                    <f:selectItem itemLabel="Radial" itemValue="R" />
+                    <f:selectItem itemLabel="Diagonal" itemValue="D" />
+                    <f:selectItem itemLabel="Cinturón" itemValue="B" />
+                    
+                </select>
+               
+             <label>Diametro (Pulgadas)</label>
+            <input
+                 type="number"
+                jsf="diametro"
+                required="true"
+                jsf:value="#{llantaController.currentLlanta.diametro}"/>
+             
+            <input class="medium success button" type="submit"
+                   value="Guardar"
+                   jsf:action="#{llantaController.addLlanta()}"/>
+        </form>
+             </section>
+         <footer class="row footer large-12" data-equalizer="" style="background-image: url(#{request.contextPath}/resource/images/footer2.jpg);">
+         
+           <article class=" small-4 column " data-equalizer-watch="">
+               <h4>Desarrolladores</h4>
+               <p>Luis Evelio Delgado Britto</p>
+               <p>Yohon Jairo Bravo Castro</p>
+               <p>934096</p>
+           
+          </article>
+           <article class="small-4 column " data-equalizer-watch="">
+               <a href="http://www.twitter.com">Twitter</a>
+               <a href="http://www.facebook.com">Facebook</a>
+               <a href="http://www.instagram.com">Instagram</a>
+               <p>Todos los derechos reservados</p>
+          </article>
+              <article class=" small-4 column " data-equalizer-watch="">
+            
+          </article>
+
+         
+
+      </footer>
+        <script src="#{request.contextPath}/js/vendor/jquery.js"></script>
+           <script src="#{request.contextPath}/js/foundation.min.js"></script>  
+    <script>
+
+
+          $(document).foundation();
+        
+
+    </script>
+    </body>
+</html>
+
